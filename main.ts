@@ -50,14 +50,16 @@ ncc1701d = sprites.create(assets.image`Enterprise`, SpriteKind.Player)
 controller.moveSprite(ncc1701d)
 ncc1701d.setStayInScreen(true)
 info.setLife(10)
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(750, function () {
     if (8 < randint(0, 10)) {
         Klin = sprites.create(assets.image`Klingon`, SpriteKind.Enemy)
         Klin.setPosition(randint(10, 110), 0)
         Klin.setVelocity(0, randint(50, 90))
+        Klin.setFlag(SpriteFlag.DestroyOnWall, true)
         pause(100 * randint(1, 4))
         disr = sprites.create(assets.image`disruptor`, SpriteKind.kdis)
         disr.setPosition(Klin.x, Klin.y)
         disr.setVelocity(0, 200)
+        disr.setFlag(SpriteFlag.DestroyOnWall, true)
     }
 })
