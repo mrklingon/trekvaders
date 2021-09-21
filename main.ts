@@ -5,7 +5,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     phsr = sprites.create(assets.image`phaser`, SpriteKind.Projectile)
     phsr.setPosition(ncc1701d.x, ncc1701d.y - 15)
     phsr.setVelocity(0, -90)
-    phsr.setFlag(SpriteFlag.DestroyOnWall, true)
+    phsr.setFlag(SpriteFlag.AutoDestroy, true)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.kdis, function (sprite, otherSprite) {
     sprite.setImage(assets.image`EnterpriseShield`)
@@ -55,11 +55,11 @@ game.onUpdateInterval(750, function () {
         Klin = sprites.create(assets.image`Klingon`, SpriteKind.Enemy)
         Klin.setPosition(randint(10, 110), 0)
         Klin.setVelocity(0, randint(50, 90))
-        Klin.setFlag(SpriteFlag.DestroyOnWall, true)
+        Klin.setFlag(SpriteFlag.AutoDestroy, true)
         pause(100 * randint(1, 4))
         disr = sprites.create(assets.image`disruptor`, SpriteKind.kdis)
         disr.setPosition(Klin.x, Klin.y)
         disr.setVelocity(0, 200)
-        disr.setFlag(SpriteFlag.DestroyOnWall, true)
+        disr.setFlag(SpriteFlag.AutoDestroy, true)
     }
 })
