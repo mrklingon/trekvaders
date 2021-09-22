@@ -4,11 +4,13 @@ namespace SpriteKind {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     phsr = sprites.create(assets.image`phaser`, SpriteKind.Projectile)
     phsr.setPosition(ncc1701d.x, ncc1701d.y - 15)
-    phsr.setVelocity(0, -90)
+    music.pewPew.play()
+    phsr.setVelocity(0, -100)
     phsr.setFlag(SpriteFlag.AutoDestroy, true)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.kdis, function (sprite, otherSprite) {
     sprite.setImage(assets.image`EnterpriseShield`)
+    music.knock.play()
     info.changeLifeBy(-1)
     scene.cameraShake(4, 500)
     otherSprite.setImage(assets.image`KlingonBoom`)
@@ -23,6 +25,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.kdis, function (sprite, otherSpr
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeScoreBy(5)
     otherSprite.setImage(assets.image`KlingonBoom`)
+    music.knock.play()
     pause(100)
     otherSprite.setImage(assets.image`KlingonBoom0`)
     pause(100)
@@ -31,6 +34,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     otherSprite.destroy()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    music.knock.play()
     sprite.setImage(assets.image`EnterpriseShield`)
     info.changeLifeBy(-1)
     scene.cameraShake(4, 500)
