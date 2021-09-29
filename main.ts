@@ -65,5 +65,6 @@ game.onUpdateInterval(750, function () {
         disr.setPosition(Klin.x, Klin.y)
         disr.setVelocity(0, 200)
         disr.setFlag(SpriteFlag.AutoDestroy, true)
+        info.changeScoreBy(1)
     }
 })
