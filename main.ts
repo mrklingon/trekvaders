@@ -12,6 +12,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.kdis, function (sprite, otherSpr
     sprite.setImage(assets.image`EnterpriseShield`)
     music.knock.play()
     info.changeLifeBy(-1)
+    info.changeScoreBy(-1)
     scene.cameraShake(4, 500)
     otherSprite.setImage(assets.image`KlingonBoom`)
     pause(100)
@@ -42,7 +43,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     pause(300)
     sprite.setImage(assets.image`Enterprise`)
     otherSprite.destroy()
-    info.changeScoreBy(-1)
 })
 let disr: Sprite = null
 let Klin: Sprite = null
