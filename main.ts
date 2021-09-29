@@ -42,6 +42,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     pause(300)
     sprite.setImage(assets.image`Enterprise`)
     otherSprite.destroy()
+    info.changeScoreBy(-1)
 })
 let disr: Sprite = null
 let Klin: Sprite = null
